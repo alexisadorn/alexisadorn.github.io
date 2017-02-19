@@ -1,0 +1,21 @@
+# Site settings
+title: Facebook Has Free Ice Cream
+header-img: img/home-bg.png
+email: alexisadorn@gmail.com
+copyright_name: alexisadorn
+description: > # this means to ignore newlines until "baseurl:"
+  ...and other reasons why I code
+baseurl: "" # the subpath of your site, e.g. /blog
+twitter_username: alexisadorn
+github_username:  alexisadorn
+learn_profile: alexisadorn
+email_username: alexisadorn@gmail.com
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+paginate: 5
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+
+gems: [jekyll-paginate, jekyll-feed]
