@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Can You Beat a Computer at its Own Game?"
-date:   2017-04-21 23:58:31 +0000
+date:   2017-04-21 19:58:32 -0400
 ---
 
 
@@ -15,7 +15,7 @@ So I probably didn't just code the new Skynet....probably. But I am very proud t
 
 Alright, now that I have all the killer computer jokes out of my system, I want to lay out my process for finishing this Tic-Tac-Toe with AI project from the Flatiron School.
 
-#### To Partner or Not to Partner?
+### To Partner or Not to Partner?
 
 One of the options in this lab was to work with a partner. At first, I thought that would be pretty fun, but I ended up not doing it. I told myself that my schedule was too difficult and I wouldn't be able to find common times to meet, and wondered how long it would take me reaching out to people on Slack to find someone. 
 
@@ -25,7 +25,7 @@ It seems like so much of working as a programmer involves talking to people abou
 
 Partner or no, I'm still proud of my work. But next time, I'll remind myself not to take the easy way out, and collaborate with my peers.
 
-#### Rebuilding the Board and Game
+### Rebuilding the Board and Game
 
 After I had made the decision to work alone, I spent my first chunk of time re-building the game environment. Luckily, we had done this in previous exercises - and I had no problem following the DRY (Don't Repeat Yourself) rule. 
 
@@ -37,7 +37,7 @@ So why didn't I just copy/paste from my Github repo? I already did the work, so 
 
 There were new rspec tests that I hadn't written code for before - like adding a human and a computer player. Building my human player was a breeze. Inheritance seems to be a concept I get a little faster than things like object relationships and self. Building the computer player, that was more difficult...
 
-#### Thinking through the AI Logic
+### Thinking through the AI Logic
 
 I started off by researching the MiniMax algorithm that was suggested in the lab's instructions. I would like to spend more time learning about that algorithm, but at the time, it seemed very complicated and the lab mentioned that there was a way to think about the logic of a Tic-Tac-Toe game in a more basic sense.
 
@@ -57,7 +57,7 @@ Writing this out was super helpful to get started - I knew what I should start w
 
 Now, if you've built a Tic-Tac-Toe with AI before, you might already see what's wrong with my logic above. And I won't go into the full details of my week-long struggle, but essentially as I was coding this, using a lot of `detect` and `any?` enumerators and pulling index numbers into arrays, the stupid thing wouldn't work. I was able to successfully play a couple of rounds before my computer player would go into an infinite loop or raise an error. I just wasn't seeing what was wrong, and all the sudden I had a huge mess of code and comments and commented-out `binding.pry`s. I stepped away from my computer for a couple of days feeling grumpy and out of ideas. 
 
-#### Learn Superheros to the Rescue
+### Learn Superheros to the Rescue
 
 It was time to call in some back-up. I made an office hours appointment with Corinna, the instructor at Flatiron covering Intro - OO Ruby. That 30-minute meeting was so helpful. 
 
@@ -82,7 +82,7 @@ And that's what I did. My logic now looks like:
 
 I was able to rewrite my Computer player AND get it passing all tests and was able to play game after game successfully drawing with the computer each time. 
 
-#### Bringing it All Together
+### Bringing it All Together
 The last piece I refined was my CLI. I had been working on this throughout so that I could test my computer player. But now that I knew my computer player was working, I decided to do the fun part and beautify my CLI!
 
 I found a neat Ruby gem called 'colorize', built a cool little design as a welcome to the game, and added some color!
