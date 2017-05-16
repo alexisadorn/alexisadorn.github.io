@@ -34,7 +34,7 @@ Below I go into more detail on each of the classes and some of the major success
 
 --------------------------------------------------------------------
 
-## bin/bestfriendfinder
+# bin/bestfriendfinder
 
 This is where my user starts the program. The code within this file is small and simply calls my CLI class, which gets the program up and running. 
 
