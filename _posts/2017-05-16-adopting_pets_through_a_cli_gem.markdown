@@ -39,12 +39,12 @@ Below I go into more detail on each of the classes and some of the major success
 This is where my user starts the program. The code within this file is small and simply calls my CLI class, which gets the program up and running. 
 
 
-### CLI
+**CLI**
 The CLI class introduces my user to the program, asks them which type of animal they are interested in, then sends that information off to the other classes to do their work. 
 
 Once the other classes have performed their duties, the CLI class is responsible for displaying all info to the user, gathering more input from the user, displaying additional pet details to the user and then asking if the user would like to search again.
 
-**Major Struggle & Success**: 
+*Major Struggle & Success*: 
 As I started writing my code, I saw something that I knew would eventually be a problem. The website has many animals to choose from – dogs, cats, rabbits, birds, horses, pigs, barnyard and small & furry. Because of this, from my very first method `#start`, I was writing a long `case` statement that in pseudocode said *“If the user types in 1, they want to see dogs. Elsif the user types in 2, they want to see cats…”* and so on and so on. 
 
 This was a pretty big case statement (20 lines!). Then as I was writing a general `AnimalFactory` class that would scrape the page and create specific animal objects, I realized that I would have to do that again - *“if the user wanted to see dogs, scrape the dog page, elsif the user wanted to see cats, scrape the cat page….”.* 
@@ -61,7 +61,7 @@ Luckily, there is the internet! Googling gave me this method:
 
 Using this method, I could pass in any argument and my program will turn it into an Object. That was exactly what I needed. So now how do I figure out what variable to pass? A case statement came up again in my head:
 	
-	```
+	
 	#If the user wants “dogs”
 	Object.const_get(“dogs”)
        => Dogs
@@ -69,7 +69,7 @@ Using this method, I could pass in any argument and my program will turn it into
 	#If the user wants “cats”
 	Object.const_get(“cats”)
        => Cats
-	```
+	
 
 So this didn’t really fix my original problem of getting rid of those case statements. But then I thought back to the days of Tic Tac Toe, and how we used a fancy little thing called a constant. A constant allows you to set some information about the object that would never change.
 
@@ -86,14 +86,14 @@ Having this array then allowed me pull out the string of the animal, based on th
 In addition to saving lines, this has the added benefit of ensuring flexibility – so if at any time, I decide to change up the order of how I list my pets in the `PETS` array, the number that the user inputs will always be connected to the correct animal.
 
 
-### AnimalFactory & Scraper
+**AnimalFactory & Scraper**
 In the CLI file, the `AnimalFactory.new` method is called and passed the species of the animal in string format, as well as the species of the animal as an object, which are then assigned as instance variables in the AnimalFactory class.  
 
 The AnimalFactory class’ main responsibility is to churn out new animals (like a factory!) It does this by first calling on the `Scraper` object to gather the first page of all adoptable pets and their names, breeds and ages. The Scraper class takes in an argument of the species name, which is appended to the end of the Best Friends website url. The first time we call the Scraper method, we are only collecting a pet’s name, breed, age, and personal page URL.
 
 The Scraper method returns the array of pet details that we just scraped, and we use that to create new animals. We are able to create new animal objects with the details array, and specify the type of animal (`Dog`, `Cat`, etc.) we would like to create by using our animal object that has been stored in an instance variable.
 
-### Animals & animals/Dog, Cat, etc.
+**Animals & animals/Dog, Cat, etc.**
 
 Each species of animal lives within the `lib/animals` folder and inherits from the parent `Animals` class, which contains most of the functionality for creating and adding attributes to animals. When the AnimalFactory class calls `#create_new`, it is calling on the individual animal object, but because it inherits from `Animals`, the code lives within the Animals class.
 
@@ -103,12 +103,12 @@ Inheriting from one class follows the DRY principle by ensuring that the methods
 
 Now we have a batch of new animal objects with name, breed, age, url and species!
 
-### AnimalFactory #add_attributes_to_animals
+**AnimalFactory #add_attributes_to_animals**
 After creating animal objects, we want to add more details to each individual animal from their personal pet page. Using the `#add_attributes_to_animals` method, which iterates through the `@@all` variable for the specific type of species that our user has asked for, we will go through each animal instance and scrape the website again, but this time we use the animal’s personal URL. 
 
 We scrape for more details such as size, color, sex and description and return a hash with that information. Now that we have a hash of additional details, we will assign the additional details to each animal object. 
 
-### Animal #add_attributes
+**Animal #add_attributes**
 `#add_attributes` uses the send method to add the additional attributes as instance variables to our animal object. Then we do a check to see if any of our attributes are missing values.
 
 `#check_attributes_for_nil` is not required to make the program function, but it makes the display for the user a little nicer. 
