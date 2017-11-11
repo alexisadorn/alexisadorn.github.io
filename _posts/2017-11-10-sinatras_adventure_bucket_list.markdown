@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Sinatra's Adventure Bucket List"
-date:       2017-11-11 04:34:21 +0000
+date:       2017-11-10 23:34:22 -0500
 permalink:  sinatras_adventure_bucket_list
 ---
 
@@ -13,7 +13,7 @@ My [Adventure Bucket List](https://github.com/alexisadorn/Sinatra-Adventure-Buck
 
 Using ActiveRecord for my associations and Sinatra for my routes, this was a great exercise to test my skills learned in the Flatiron course so far. Below are some of the fun and challenging areas I faced during this project:
 
-## Setting up my Models & AR Associations
+# Setting up my Models & AR Associations
 I started my project out drawing my tables on a whiteboard and saying out loud the basic logic of my app:
 
 * Users have {Name, Email, Password}. A User `has_many` Experiences and `has_many` Categories `through` Experiences
@@ -26,17 +26,17 @@ With my logic written out, I began creating migrations to create each table. I t
 
 The `tux` gem was my friend here and helped me work out any kinks I had with connecting the associations. 
 
-## User Accounts
+# User Accounts
 An important feature of my app is the ability for users to create an account to maintain their list, log in and out of their account, and view other users' Bucket List's to get inspiration (but not make changes). I achieved this feature by adding the following to my app:
 
-#### Enabling Sessions
+## Enabling Sessions
 By adding `enable :sessions` to my ApplicationController, I was able to maintain a user's ID in the `session` hash. This helped me to do a number of things, including:
 1. Verifying if the user was logged in or out by checking if `session[:user_id]` was present
 2. Disallowing access to pages if a user was logged out by redirecting the page if the `session[:user_id]` wasn't present
 3. Allowing a user to view, edit and delete their own experiences
 4. Preventing a user from editing or deleting an experience not belonging to them by removing the edit/delete buttons and redirecting the page if the `session[:user_id]` and `experience.user_id` did not match
 
-#### Helper Methods and Filters
+## Helper Methods and Filters
 There were several areas in the app where a verification check was needed to see if the user was logged in or if the current user's ID matched the experience's user ID. Following the DRY method, I created helper methods in the ApplicationController that the Experiences, Countries, Users and Categories controllers could reference.
 
 * `#is_logged_in?` checks to see if the `session[:user_id]` has been set and returns true if it has, indicating that a user is logged in
@@ -59,7 +59,7 @@ Here you can see that I've used Sinatra to perform a universal route check to en
 By repeating this filter in each of the controllers, I secured each page and ensured that they could not be accessed or changed by users unless they are logged in. 
 
 
-### Password Verification
+## Password Verification
 In order to securely store and verify a user's password, I used the gem `bcrypt`. Setting up bcrypt and authenticating a user's password included:
 * Adding bcrypt to my Gemfile and installing the gem
 * Including the key phrase `has_secure_password` in my User model
@@ -67,7 +67,7 @@ In order to securely store and verify a user's password, I used the gem `bcrypt`
 * If the password did not match the one stored in the database, the user is returned to the login screen and asked to try again. 
 * If the password does match, the session's `[:user_id]` is set and the user is brought to their Bucket List
 
-## CRUD Pages
+# CRUD Pages
 Once a user is logged in, there are three areas to create or edit content. They can:
 1. Add a New Experience (`/create`)
 2. Edit an Experience (`/edit`)
@@ -143,7 +143,7 @@ The `create` method will also set the user_id based on the `session[:user_id]` t
 
 Once all attributes have been set, the new/updated instance of the Experience is passed back to the controller to be displayed by the view. 
 
-## Styling and Notifications
+# Styling and Notifications
 The styling of the website was done simply with Twitter's Bootstrap. A great tutorial here walked me through [How to integrate Bootstrap CSS Into Your Sinatra Site](http://ningbit.github.io/blog/2013/06/28/how-to-integrate-bootstrap-css-into-your-sinatra-site/). 
 
 I also installed Sinatra's `sinatra-flash` gem in order to create useful flash messages when a user accesses a page they should not have access to or creates/deletes an experience. 
@@ -159,6 +159,6 @@ Using my `layout.erb` page, I was able to set my flash messages in an iterator w
 ```
 
 
-## Wrapping Up
+# Wrapping Up
 I had a lot fun creating this project and am exicted to use it for my own personal Adventure Bucket List. I can already see some areas for new features, including: being able to add more items to an Experience (like an image, link to a travel blog, etc.), being able to check off when things are completed on the Bucket List, and pulling in more travel suggestions from travel sites. But overall I'm pleased with the project at this point and thinks this will be a very useful app!
 
