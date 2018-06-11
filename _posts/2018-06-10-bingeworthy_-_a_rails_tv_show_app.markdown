@@ -7,7 +7,7 @@ permalink:  bingeworthy_-_a_rails_tv_show_app
 
 > **Check out my project at https://github.com/alexisadorn/bingeworthy**
 
-Getting to the final project is Rails was such an existing and relief-filled moment for me. I had been struggling through the Rails section, especially towards the end, and then a travel adventure made me lose all momentum. I ended up going back and re-doing many of the Rails labs to remind myself of several key concepts, like nested routes and authentication; so, reaching the final level was exciting.
+Getting to the final project is Rails was such an exciting and relief-filled moment for me. I had been struggling through the Rails section, especially towards the end, and then a travel adventure made me lose all momentum. I ended up going back and re-doing many of the Rails labs to remind myself of several key concepts, like nested routes and authentication; so, reaching the final level was exciting.
 
 I had already had an idea for an app in my head based on my own personal frustrations. I was going to create an app where you can keep a list of all the TV shows you are watching so that you don’t forget about them. I have a small note list on my phone with reminders to stay caught up on Silicon Valley or don’t forget about Outlander while it’s on mid-season break! But I thought there could be a better solution than a note on my phone.
 
